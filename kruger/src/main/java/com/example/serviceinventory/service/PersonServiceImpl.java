@@ -5,6 +5,7 @@ import com.example.serviceinventory.entities.User;
 import com.example.serviceinventory.model.InterfacePerson;
 import com.example.serviceinventory.repositories.PersonRepository;
 import com.example.serviceinventory.repositories.UsuarioRepository;
+import com.example.serviceinventory.security.EncryptDecrypt256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,8 @@ public class PersonServiceImpl implements InterfacePerson {
         Person p1=personRepositori.save(person);
         User u=new User();
         u.setUsername(p1.getCedula());
-        u.setPassword(p1.getCedula());
+        String pass= new EncryptDecrypt256().encryptAES(p1.getCedula(), "kruger");
+        u.setPassword(pass);
         u.setIdPerson(p1.getId());
         usuarioRepository.save(u);
         return p1;

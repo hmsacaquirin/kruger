@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface InterfaceEmpleado {
     Empleado save(Empleado empleado, Long id);
+
+    List findEmpleadoByEstadoVacunacion(String estadoVacunacion);
+
+    List findEmpleadoByTipoVacuna(String tipoVacuna);
+
+    List findEmpleadoByFechas(String fecha1, String fecha2);
 }

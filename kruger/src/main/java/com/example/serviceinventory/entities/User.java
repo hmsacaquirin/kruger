@@ -1,7 +1,4 @@
 package com.example.serviceinventory.entities;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
