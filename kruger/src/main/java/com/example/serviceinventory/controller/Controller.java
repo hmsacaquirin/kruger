@@ -22,12 +22,12 @@ public class Controller {
 
     @Autowired
     private UserServiceImpl userService;
-    @PostMapping("/addPerson")
+    @PostMapping("/admin/addPerson")
     public Person addPerson(@RequestBody @Validated Person p) {
         return personImp.save(p);
     }
 
-    @PutMapping("/updatePerson/{id}")
+    @PutMapping("/admin/updatePerson/{id}")
     public Person updatePerson(@RequestBody Person person, @PathVariable("id") Long id) {
         return personImp.update(person, id);
     }
@@ -37,34 +37,30 @@ public class Controller {
         return empleadoImp.save(e, id);
     }
 
-    @DeleteMapping("/deletePerson/{id}")
+    @DeleteMapping("/admin/deletePerson/{id}")
     public String deletePersonById(@PathVariable("id") Long id) {
         personImp.deletePersonById(id);
         return "Empleado eliminado correctamente";
     }
 
-    @GetMapping("/listPerson")
+    @GetMapping("/admin/listPerson")
     public List<Person> personList() {
 
         return personImp.personList();
     }
 
-    @GetMapping("/listEmpleadoEstadoVacunacion/{estadoVacunacion}")
+    @GetMapping("/admin/listEmpleadoEstadoVacunacion/{estadoVacunacion}")
     public List findEmpleadoByEstadoVacunacion(@PathVariable("estadoVacunacion") String estadoVacunacion) {
         return empleadoImp.findEmpleadoByEstadoVacunacion(estadoVacunacion);
     }
 
-    @GetMapping("/listEmpleadoTipoVacuna/{tipoVacuna}")
+    @GetMapping("/admin/listEmpleadoTipoVacuna/{tipoVacuna}")
     public List<Listas> findEmpleadoByTipoVacuna(@PathVariable("tipoVacuna") String tipoVacuna) {
         return empleadoImp.findEmpleadoByTipoVacuna(tipoVacuna);
     }
 
-    @GetMapping("/listEmpleadoFechaVacunacion/{fecha1}/{fecha2}")
+    @GetMapping("/admin/listEmpleadoFechaVacunacion/{fecha1}/{fecha2}")
     public List<Listas> findEmpleadoByFechas(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2") String fecha2) {
         return empleadoImp.findEmpleadoByFechas(fecha1, fecha2);
-    }
-    @GetMapping(value = "/prueba")
-    public void prueba(){
-        System.out.println("entro");
     }
 }
