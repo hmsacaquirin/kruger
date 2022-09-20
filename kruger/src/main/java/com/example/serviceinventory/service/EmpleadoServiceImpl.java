@@ -12,6 +12,7 @@ import com.example.serviceinventory.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -101,17 +102,65 @@ public class EmpleadoServiceImpl implements InterfaceEmpleado {
     }
 
     @Override
-    public List findEmpleadoByEstadoVacunacion(String estadoVacunacion) {
-        return empleadoRepository.findEmpleadoByEstadoVacunacion(estadoVacunacion);
+    public ArrayList<Listas> findEmpleadoByEstadoVacunacion(String estadoVacunacion) {
+        List<Object[]> list = empleadoRepository.findEmpleadoByEstadoVacunacion(estadoVacunacion);
+        ArrayList<Listas> lista = new ArrayList<>();
+        for (Object[] obj : list) {
+            Listas f = new Listas();
+            f.setCedula(obj[0].toString());
+            f.setNombres(obj[1].toString());
+            f.setApellido(obj[2].toString());
+            f.setFecha_nacimiento(obj[3].toString());
+            f.setDireccion_domicilio(obj[4].toString());
+            f.setCelular(obj[5].toString());
+            f.setEstado_vacunacion(obj[6].toString());
+            f.setTipo_vacuna(obj[7].toString());
+            f.setFecha_vacunacion(obj[8].toString());
+            f.setNumero_dosis(obj[9].toString());
+            lista.add(f);
+        }
+        return lista;
     }
 
     @Override
-    public List findEmpleadoByTipoVacuna(String tipoVacuna) {
-        return empleadoRepository.findEmpleadoByTipoVacuna(tipoVacuna);
+    public ArrayList<Listas> findEmpleadoByTipoVacuna(String tipoVacuna) {
+        List<Object[]> list = empleadoRepository.findEmpleadoByTipoVacuna(tipoVacuna);
+        ArrayList<Listas> lista = new ArrayList<>();
+        for (Object[] obj : list) {
+            Listas f = new Listas();
+            f.setCedula(obj[0].toString());
+            f.setNombres(obj[1].toString());
+            f.setApellido(obj[2].toString());
+            f.setFecha_nacimiento(obj[3].toString());
+            f.setDireccion_domicilio(obj[4].toString());
+            f.setCelular(obj[5].toString());
+            f.setEstado_vacunacion(obj[6].toString());
+            f.setTipo_vacuna(obj[7].toString());
+            f.setFecha_vacunacion(obj[8].toString());
+            f.setNumero_dosis(obj[9].toString());
+            lista.add(f);
+        }
+        return lista;
     }
 
     @Override
-    public List findEmpleadoByFechas(String fecha1, String fecha2) {
-        return empleadoRepository.findEmpleadoByFechas(fecha1, fecha2);
+    public ArrayList<Listas> findEmpleadoByFechas(String fecha1, String fecha2) {
+        List<Object[]> list = empleadoRepository.findEmpleadoByFechas(fecha1, fecha2);
+        ArrayList<Listas> lista = new ArrayList<>();
+        for (Object[] obj : list) {
+            Listas f = new Listas();
+            f.setCedula(obj[0].toString());
+            f.setNombres(obj[1].toString());
+            f.setApellido(obj[2].toString());
+            f.setFecha_nacimiento(obj[3].toString());
+            f.setDireccion_domicilio(obj[4].toString());
+            f.setCelular(obj[5].toString());
+            f.setEstado_vacunacion(obj[6].toString());
+            f.setTipo_vacuna(obj[7].toString());
+            f.setFecha_vacunacion(obj[8].toString());
+            f.setNumero_dosis(obj[9].toString());
+            lista.add(f);
+        }
+        return lista;
     }
 }

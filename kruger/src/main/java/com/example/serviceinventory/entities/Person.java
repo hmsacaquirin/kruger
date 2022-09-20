@@ -25,12 +25,12 @@ public class Person {
     @Column(name = "nombres")
     @NotNull
     @NotEmpty(message="Los nombres son obligatorios")
-    @Pattern(regexp = "[A-Za-z]+", message="Caracter no valido para este campo")
+    @Pattern(regexp = "[a-zA-Z\\s]*$", message="Caracter no valido para este campo")
     private String nombres;
     @Column(name = "apellido")
     @NotNull
     @NotEmpty(message="Los apellidos son obligatorios")
-    @Pattern(regexp = "[A-Za-z]+", message="Caracter no valido para este campo")
+    @Pattern(regexp = "[a-zA-Z\\s]*$", message="Caracter no valido para este campo")
     private String apellido;
     @Column(name = "email")
     @NotNull

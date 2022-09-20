@@ -3,14 +3,15 @@ package com.example.serviceinventory.model;
 import com.example.serviceinventory.entities.Empleado;
 import com.example.serviceinventory.entities.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface InterfaceEmpleado {
     Empleado save(Empleado empleado, Long id);
 
-    List findEmpleadoByEstadoVacunacion(String estadoVacunacion);
+    ArrayList<Listas> findEmpleadoByEstadoVacunacion(String estadoVacunacion);
 
-    List findEmpleadoByTipoVacuna(String tipoVacuna);
+    ArrayList<Listas> findEmpleadoByTipoVacuna(String tipoVacuna);
 
-    List findEmpleadoByFechas(String fecha1, String fecha2);
+    ArrayList<Listas> findEmpleadoByFechas(String fecha1, String fecha2);
 }

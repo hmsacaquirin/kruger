@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,17 +51,17 @@ public class Controller {
     }
 
     @GetMapping("/admin/listEmpleadoEstadoVacunacion/{estadoVacunacion}")
-    public List findEmpleadoByEstadoVacunacion(@PathVariable("estadoVacunacion") String estadoVacunacion) {
+    public ArrayList<Listas> findEmpleadoByEstadoVacunacion(@PathVariable("estadoVacunacion") String estadoVacunacion) {
         return empleadoImp.findEmpleadoByEstadoVacunacion(estadoVacunacion);
     }
 
     @GetMapping("/admin/listEmpleadoTipoVacuna/{tipoVacuna}")
-    public List<Listas> findEmpleadoByTipoVacuna(@PathVariable("tipoVacuna") String tipoVacuna) {
+    public ArrayList<Listas> findEmpleadoByTipoVacuna(@PathVariable("tipoVacuna") String tipoVacuna) {
         return empleadoImp.findEmpleadoByTipoVacuna(tipoVacuna);
     }
 
     @GetMapping("/admin/listEmpleadoFechaVacunacion/{fecha1}/{fecha2}")
-    public List<Listas> findEmpleadoByFechas(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2") String fecha2) {
+    public ArrayList<Listas> findEmpleadoByFechas(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2") String fecha2) {
         return empleadoImp.findEmpleadoByFechas(fecha1, fecha2);
     }
 }
