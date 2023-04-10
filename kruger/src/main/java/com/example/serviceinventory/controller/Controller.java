@@ -25,7 +25,11 @@ public class Controller {
     private UserServiceImpl userService;
     @PostMapping("/admin/addPerson")
     public Person addPerson(@RequestBody @Validated Person p) {
+<<<<<<< Updated upstream
         System.out.println("control de versionamiento 1 aqui va esta version denuevo6464646");
+=======
+        System.out.println("control de versionamiento 1 242424sdsfsdf aqui ");
+>>>>>>> Stashed changes
         return personImp.save(p);
     }
 
